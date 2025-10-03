@@ -8,7 +8,7 @@ const routes = [
 
 const router = createRouter({
   // Use hash history for better compatibility with static hosting
-  history: import.meta.env.PROD ? createWebHashHistory('/jibble/') : createWebHistory(import.meta.env.BASE_URL),
+  history: import.meta.env.PROD ? createWebHashHistory() : createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
 

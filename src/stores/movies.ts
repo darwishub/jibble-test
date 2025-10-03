@@ -24,11 +24,11 @@ export const useMoviesStore = defineStore(
     return { favorites, query, page, toggleFavorite, isFavorite }
   },
   {
-    // persistedstate options
+    // Using pinia-plugin-persistedstate
     persist: {
       key: 'mv_favorites_store',
-      storage: localStorage, // (default is localStorage; can omit)
-      paths: ['favorites', 'query', 'page'], // choose what to persist
+      storage: localStorage,
+      pick: ['favorites', 'query', 'page'],
     },
   }
 )

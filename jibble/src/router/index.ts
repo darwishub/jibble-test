@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 const routes = [
   { path: '/', name: 'home', component: () => import('@/views/HomeView.vue') },
@@ -7,7 +7,8 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // Use hash history for better compatibility with static hosting
+  history: import.meta.env.PROD ? createWebHashHistory('/jibble/') : createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
 
